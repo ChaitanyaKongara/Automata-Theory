@@ -136,3 +136,7 @@ Finally build the minimized DFA using the partition P<sub>k</sub>, each set in t
 If the final set of states consist of atleast one start state then the entire set becomes a start state and same is the case with final satates.
 
 ***
+
+### Quick glance at code, outputs and script execution:
+
+https://iiitaphyd-my.sharepoint.com/:v:/g/personal/sri_meher_students_iiit_ac_in/EZgxKzC4yPBGsb-MvTpRdgABn56Z8Ekb4t2JwC396WH6_A?e=4es4hN
