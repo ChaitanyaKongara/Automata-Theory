@@ -65,6 +65,7 @@ for item in p_k:
             if len(p_k1[key]) != 0 and check_equivalence(i, key):
                 flag=1
                 p_k1[key].append(i)
+                break
         if flag==0:
             p_k1[i].append(i)
 
@@ -85,11 +86,12 @@ while p_k != p_k1:
                 if len(p_k1[key]) != 0 and check_equivalence(i, key):
                     flag=1
                     p_k1[key].append(i)
+                    break
             if flag==0:
                 p_k1[i].append(i)
 
 
-print(p_k,'\n\n\n',p_k1)
+# print(p_k,'\n\n\n',p_k1)
 
 DFA ={
     "states": [],
@@ -103,6 +105,7 @@ for key in p_k1:
     if len(p_k1[key]) == 0:
         continue
     DFA["states"].append(p_k1[key])
+
 for state in inp["start_states"]:
     for key in p_k1:
         if state in p_k1[key]: 

@@ -28,7 +28,7 @@ def mapper(num):
     arr = []
     for i in range(len(inp["states"])):
         if num & 1<<i:
-            state = "Q" + str(i)
+            state = inp["states"][i]
             arr.append(state)
     num_to_state[num] = arr
     state_to_num[tuple(arr)] = num
@@ -37,7 +37,6 @@ def mapper(num):
 for i in range(dfa_noofstates):
     DFA["states"].append(mapper(i))
 
-print(num_to_state, state_to_num)
 #  letters and start states will be the same for NFA and DFA
 DFA["letters"] = inp["letters"]
 DFA["start_states"] = [inp["start_states"]]
@@ -48,7 +47,7 @@ DFA["start_states"] = [inp["start_states"]]
 for item in  inp["final_states"]:
     for i in range(dfa_noofstates):
         # print(i,item)
-        if i & 1<<int(item[1]) and  num_to_state[i] not in DFA["final_states"]:
+        if i & state_to_num[tuple([item])] and  num_to_state[i] not in DFA["final_states"]:
             DFA["final_states"].append(num_to_state[i])
 
 
@@ -82,34 +81,5 @@ for var in  range(dfa_noofstates):
 
 for item in trans_mat:
     DFA["transition_function"].append([list(item[0]),item[1],trans_mat[item]])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 json.dump(DFA,output_fd, indent=4)
