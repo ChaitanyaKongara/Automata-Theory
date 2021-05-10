@@ -68,7 +68,7 @@ def postfix_conversion(regex):
                         if len(stack) == 0:
                             break
                         elif operators[stack[len(stack)-1]] < operators[item]:
-                            stack.append(item)
+                            #stack.append(item)
                             break
                         else:
                             ans+=stack[len(stack)-1]
